@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="origin"
+          fetch="git://github.com/cmotc/" />
+  <remote name="uboot"
+          fetch="https://github.com/u-boot/" />
+  <default remote="origin"
+           pushurl="git@github.com:cmotc/"
+           revision="master" />
+
+  <project path="." name="distro-manifest" />
+  <project path="apt-now" name="apt-now" />
+  <project path="pkpage" name="pkpage" />
+  <project path="scpage" name="scpage" />
+  <!--
+  <project path="hdpage" name="hdpage" />
+  <project path="linux-debian" name="linux-debian" />
+  <project path="linux-grsec" name="linux-grsec" />
+  <project path="linux-libre" name="linux-libre"/>
+  <project path="linux-libre-grsec" name="linux-libre-grsec" />
+  <project path="openfwwf" name="openfwwf" />
+  <project path="ath9k-firmware" name="open-ath9k-htc-firmware" />
+  <project path="tab-deb" name="tab-deb" />
+  <project path="tab-web" name="tab-web" />
+  -->
+</manifest>
