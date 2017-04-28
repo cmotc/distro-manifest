@@ -12,7 +12,9 @@
   <project path="apt-now" name="apt-now" />
   <project path="pkpage" name="pkpage" />
   <project path="scpage" name="scpage" />
+  <project path="fireaxe" name="fireaxe" />
   <!--
+  <project path="stacheos" name="stacheos" />
   <project path="hdpage" name="hdpage" />
   <project path="linux-debian" name="linux-debian" />
   <project path="linux-grsec" name="linux-grsec" />
