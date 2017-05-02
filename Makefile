@@ -14,6 +14,8 @@ clone:
 	\git clone git@github.com:$(GH_NAME)/scpage || \git clone https://github.com/$(GH_NAME)/scpage || git clone https://github.com/cmotc/scpage; \
 	\git clone git@github.com:$(GH_NAME)/apt-now || \git clone https://github.com/$(GH_NAME)/apt-now || git clone https://github.com/cmotc/apt-now; \
 	\git clone git@github.com:$(GH_NAME)/fireaxe || \git clone https://github.com/$(GH_NAME)/fireaxe || git clone https://github.com/cmotc/fireaxe; \
+	\git clone git@github.com:$(GH_NAME)/awesome-lb-base || \git clone https://github.com/$(GH_NAME)/awesome-lb-base || git clone https://github.com/cmotc/awesome-lb-base; \
+	\git clone git@github.com:$(GH_NAME)/hoarderMediaOS || \git clone https://github.com/$(GH_NAME)/hoarderMediaOS || git clone https://github.com/cmotc/hoarderMediaOS; \
 	echo "Cloned subprojects"
 
 deinit:
@@ -22,6 +24,8 @@ deinit:
 	cd scpage && \git remote remove github
 	cd apt-now && \git  remote remove github
 	cd fireaxe && \git remote remove github
+	cd awesome-lb-base && \git remote remove github
+	cd hoarderMediaOS && \git remote remove github
 	echo "removed pre-init"
 
 init:
@@ -31,6 +35,8 @@ init:
 	cd ../scpage && \git  remote add github git@github.com:$(GH_NAME)/scpage; \
 	cd ../apt-now && \git  remote add github git@github.com:$(GH_NAME)/apt-now; \
 	cd ../fireaxe && \git  remote add github git@github.com:$(GH_NAME)/fireaxe; \
+	cd ../awesome-lb-base && \git  remote add github git@github.com:$(GH_NAME)/awesome-lb-base; \
+	cd ../hoarderMediaOS && \git  remote add github git@github.com:$(GH_NAME)/hoarderMediaOS; \
 	echo "Initialized Working Remotes"
 	make checkout
 
@@ -40,6 +46,8 @@ init-upstream:
 	cd ../scpage && \git  remote add upstream git@github.com:cmotc/scpage; \
 	cd ../apt-now && \git  remote add upstream git@github.com:cmotc/apt-now; \
 	cd ../fireaxe && \git  remote add upstream git@github.com:cmotc/fireaxe; \
+	cd ../awesome-lb-base && \git  remote add upstream git@github.com:cmotc/awesome-lb-base; \
+	cd ../hoarderMediaOS && \git  remote add upstream git@github.com:cmotc/hoarderMediaOS; \
 	echo "Initialized Upstream Remotes"
 
 checkout:
@@ -48,6 +56,8 @@ checkout:
 	cd scpage && \git  checkout master
 	cd apt-now && \git checkout gh-pages
 	cd fireaxe && \git  checkout master
+	cd awesome-lb-base && \git  checkout master
+	cd hoarderMediaOS && \git  checkout master
 
 commit:
 	\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
@@ -55,6 +65,8 @@ commit:
 	cd ../scpage && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../apt-now && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../fireaxe && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	cd ../awesome-lb-base && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	cd ../hoarderMediaOS && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	echo "Committed Release:"
 	echo "${COMMIT_MESSAGE}"
 
@@ -65,6 +77,8 @@ fetch:
 	cd ../scpage && git fetch upstream && \git rebase upstream/master; \
 	cd ../apt-now && git fetch upstream && \git rebase upstream/gh-pages; \
 	cd ../fireaxe && git fetch upstream && \git rebase upstream/master; \
+	cd ../awesome-lb-base && git fetch upstream && \git rebase upstream/master; \
+	cd ../hoarderMediaOS && git fetch upstream && \git rebase upstream/master; \
 	echo "Pulled in updates"
 
 pull:
@@ -87,6 +101,8 @@ upload:
 	cd ../scpage && \git push github master; \
 	cd ../apt-now && \git push github gh-pages; \
 	cd ../fireaxe && \git push github master; \
+	cd ../awesome-lb-base && \git push github master; \
+	cd ../hoarderMediaOS && \git push github master; \
 	#cd ../tab-web && \git push github master;
 	echo "Pushed Working Updates"
 
@@ -95,6 +111,8 @@ clean:
 	cd ../scpage && make clean; \
 	cd ../apt-now && make clean; \
 	cd ../fireaxe && make clean; \
+	cd ../awesome-lb-base && make clean; \
+	cd ../hoarderMediaOS && make clean; \
 	cd .. && rm *.buildinfo *.changes *.deb *.deb.md *.dsc *.tar.xz *.tar.gz *.debian.tar.xz *.debian.tar.gz *.orig.tar.gz *.orig.tar.zz; \
 	echo "Finished cleaning"
 
@@ -123,6 +141,20 @@ fireaxe:
 	export VERSION=$(VERSION);cd fireaxe && make
 
 update-fireaxe:
+	export VERSION=$(VERSION);cd fireaxe &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+		\git push github master
+
+awesomelive:
+	export VERSION=$(VERSION);cd fireaxe && make allclean
+
+update-awesomelive:
+	export VERSION=$(VERSION);cd fireaxe &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+		\git push github master
+
+hoarderos:
+	export VERSION=$(VERSION);cd fireaxe && make allclean
+
+update-hoarderos:
 	export VERSION=$(VERSION);cd fireaxe &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 		\git push github master
 
