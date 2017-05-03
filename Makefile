@@ -54,7 +54,7 @@ checkout:
 	\git checkout master
 	cd pkpage && \git  checkout master
 	cd scpage && \git  checkout master
-	cd apt-now && \git checkout gh-pages
+	cd apt-now && \git checkout master
 	cd fireaxe && \git  checkout master
 	cd awesome-lb-base && \git  checkout master
 	cd hoarderMediaOS && \git  checkout master
@@ -75,7 +75,7 @@ fetch:
 	git fetch github &&\git rebase github/master; \
 	cd pkpage && git fetch upstream && \git rebase upstream/master; \
 	cd ../scpage && git fetch upstream && \git rebase upstream/master; \
-	cd ../apt-now && git fetch upstream && \git rebase upstream/gh-pages; \
+	cd ../apt-now && git fetch upstream && \git rebase upstream/master; \
 	cd ../fireaxe && git fetch upstream && \git rebase upstream/master; \
 	cd ../awesome-lb-base && git fetch upstream && \git rebase upstream/master; \
 	cd ../hoarderMediaOS && git fetch upstream && \git rebase upstream/master; \
@@ -99,7 +99,7 @@ upload:
 	\git push github master; \
 	cd pkpage && \git push github master; \
 	cd ../scpage && \git push github master; \
-	cd ../apt-now && \git push github gh-pages; \
+	cd ../apt-now && \git push github master; \
 	cd ../fireaxe && \git push github master; \
 	cd ../awesome-lb-base && \git push github master; \
 	cd ../hoarderMediaOS && \git push github master; \
@@ -135,7 +135,7 @@ aptnow:
 
 update-aptnow:
 	export VERSION=$(VERSION);cd apt-now &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
-		\git push github gh-pages
+		\git push github master
 
 fireaxe:
 	export VERSION=$(VERSION);cd fireaxe && make

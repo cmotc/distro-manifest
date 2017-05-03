@@ -1,0 +1,18 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+[filter "lfs"]
+	smudge = git-lfs smudge --skip -- %f
+[remote "origin"]
+	url = git://github.com/cmotc/apt-now
+	projectname = apt-now
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "upstream"]
+	url = git@github.com:cmotc/apt-now
+	fetch = +refs/heads/*:refs/remotes/upstream/*
+[remote "github"]
+	url = git@github.com:cmotc/apt-now
+	fetch = +refs/heads/*:refs/remotes/github/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
