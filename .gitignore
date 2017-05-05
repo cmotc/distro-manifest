@@ -6,3 +6,4 @@
 *.packages.install
 *.packages.live
 cache/
+.repo/
