@@ -64,10 +64,10 @@ init-upstream:
 	cd ../awesome-lb-base && \git  remote add upstream git@github.com:cmotc/awesome-lb-base; \
 	cd ../hoarderMediaOS && \git  remote add upstream git@github.com:cmotc/hoarderMediaOS; \
 	cd ../way-cooler && \git remote add upstream git@github.com:way-cooler/way-cooler; \
-	cd ../fireplace && \git  remote add upstream git@github.com:cmotc/fireplace; \
-	cd ../ewlc && \git  remote add upstream git@github.com:cmotc/ewlc; \
-	cd ../wlc.rs && \git  remote add upstream git@github.com:cmotc/wlc.rs; \
-	cd ../rust-wlc && \git  remote add upstream git@github.com:cmotc/rust-wlc; \
+	cd ../fireplace && \git  remote add upstream git@github.com:drakulix/fireplace; \
+	cd ../ewlc && \git  remote add upstream git@github.com:enerccio/ewlc; \
+	cd ../wlc.rs && \git  remote add upstream git@github.com:drakulix/wlc.rs; \
+	cd ../rust-wlc && \git  remote add upstream git@github.com:way-cooler/rust-wlc; \
 	echo "Initialized Upstream Remotes"
 
 checkout:
