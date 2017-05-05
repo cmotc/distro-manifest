@@ -104,16 +104,27 @@ fetch:
 	git fetch upstream &&\git rebase upstream/master; \
 	git fetch github &&\git rebase github/master; \
 	cd pkpage && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../scpage && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../apt-now && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../fireaxe && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../awesome-lb-base && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../hoarderMediaOS && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../way-cooler && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../fireplace && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../ewlc && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../wlc.rs && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	cd ../rust-wlc && git fetch upstream && \git rebase upstream/master; \
+		git fetch github && \git rebase github/master; \
 	echo "Pulled in updates"
 
 pull:
