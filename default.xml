@@ -15,6 +15,7 @@
   <project path="fireaxe" name="fireaxe" />
   <project path="hoarderMediaOS" name="hoarderMediaOS" />
   <project path="awesome-lb-base" name="awesome-lb-base" />
+  <project path="way-cooler" name="way-cooler" />
   <!--
   <project path="stacheos" name="stacheos" />
   <project path="hdpage" name="hdpage" />
