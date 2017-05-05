@@ -17,17 +17,19 @@ clone:
 	\git clone git@github.com:$(GH_NAME)/awesome-lb-base || \git clone https://github.com/$(GH_NAME)/awesome-lb-base || git clone https://github.com/cmotc/awesome-lb-base; \
 	\git clone git@github.com:$(GH_NAME)/hoarderMediaOS || \git clone https://github.com/$(GH_NAME)/hoarderMediaOS || git clone https://github.com/cmotc/hoarderMediaOS; \
 	\git clone git@github.com:$(GH_NAME)/way-cooler || \git clone https://github.com/$(GH_NAME)/way-cooler || git clone https://github.com/cmotc/way-cooler; \
+	\git clone git@github.com:$(GH_NAME)/wlc || \git clone https://github.com/$(GH_NAME)/wlc || git clone https://github.com/cmotc/wlc; \
 	echo "Cloned subprojects"
 
 deinit:
-	 \git remote remove github
-	cd pkpage && \git remote remove github
-	cd scpage && \git remote remove github
-	cd apt-now && \git  remote remove github
-	cd fireaxe && \git remote remove github
-	cd awesome-lb-base && \git remote remove github
-	cd hoarderMediaOS && \git remote remove github
-	cd way-cooler && \git remote remove github
+	 \git remote remove github \
+	cd ../pkpage && \git remote remove github; \
+	cd ../scpage && \git remote remove github; \
+	cd ../apt-now && \git  remote remove github; \
+	cd ../fireaxe && \git remote remove github; \
+	cd ../awesome-lb-base && \git remote remove github; \
+	cd ../hoarderMediaOS && \git remote remove github; \
+	cd ../way-cooler && \git remote remove github; \
+	cd ../wlc && \git remote remove github; \
 	echo "removed pre-init"
 
 init:
@@ -40,6 +42,7 @@ init:
 	cd ../awesome-lb-base && \git  remote add github git@github.com:$(GH_NAME)/awesome-lb-base; \
 	cd ../hoarderMediaOS && \git  remote add github git@github.com:$(GH_NAME)/hoarderMediaOS; \
 	cd ../way-cooler && \git remote add github git@github.com:$(GH_NAME)/way-cooler; \
+	cd ../wlc && \git  remote add github git@github.com:$(GH_NAME)/wlc; \
 	echo "Initialized Working Remotes"
 	make checkout
 
@@ -52,6 +55,7 @@ init-upstream:
 	cd ../awesome-lb-base && \git  remote add upstream git@github.com:cmotc/awesome-lb-base; \
 	cd ../hoarderMediaOS && \git  remote add upstream git@github.com:cmotc/hoarderMediaOS; \
 	cd ../way-cooler && \git remote add upstream git@github.com:way-cooler/way-cooler; \
+	cd ../wlc && \git  remote add upstream git@github.com:cmotc/wlc; \
 	echo "Initialized Upstream Remotes"
 
 checkout:
@@ -63,6 +67,7 @@ checkout:
 	cd awesome-lb-base && \git  checkout master
 	cd hoarderMediaOS && \git  checkout master
 	cd way-cooler && \git checkout master
+	cd wlc && \git  checkout master
 
 commit:
 	\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
@@ -72,7 +77,8 @@ commit:
 	cd ../fireaxe && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../awesome-lb-base && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../hoarderMediaOS && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
-	cd ../way-cooler && \git add . && \git commit -am "${COMMIT_MESSAGE}"
+	cd ../way-cooler && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	cd ../wlc && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	echo "Committed Release:"
 	echo "${COMMIT_MESSAGE}"
 
@@ -85,7 +91,8 @@ fetch:
 	cd ../fireaxe && git fetch upstream && \git rebase upstream/master; \
 	cd ../awesome-lb-base && git fetch upstream && \git rebase upstream/master; \
 	cd ../hoarderMediaOS && git fetch upstream && \git rebase upstream/master; \
-	cd ../way-cooler && git fetch upstream && \git rebase upstream/master;
+	cd ../way-cooler && git fetch upstream && \git rebase upstream/master; \
+	cd ../wlc && git fetch upstream && \git rebase upstream/master; \
 	echo "Pulled in updates"
 
 pull:
@@ -111,6 +118,7 @@ upload:
 	cd ../awesome-lb-base && \git push github master; \
 	cd ../hoarderMediaOS && \git push github master; \
 	cd ../way-cooler && \git push github master; \
+	cd ../wlc && \git push github master; \
 	#cd ../tab-web && \git push github master;
 	echo "Pushed Working Updates"
 
@@ -122,6 +130,7 @@ clean:
 	cd ../awesome-lb-base && make clean; \
 	cd ../hoarderMediaOS && make clean; \
 	cd ../way-cooler && make clean; \
+	cd ../wlc && make clean; \
 	cd .. && rm *.buildinfo *.changes *.deb *.deb.md *.dsc *.tar.xz *.tar.gz *.debian.tar.xz *.debian.tar.gz *.orig.tar.gz *.orig.tar.zz *.iso; \
 	echo "Finished cleaning"
 
@@ -165,6 +174,13 @@ hoarderos:
 
 update-hoarderos:
 	export VERSION=$(VERSION);cd fireaxe &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+		\git push github master
+
+waylc:
+	export VERSION=$(VERSION);cd wlc && make
+
+update-waylc:
+	export VERSION=$(VERSION);cd wlc &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 		\git push github master
 
 cooler:
