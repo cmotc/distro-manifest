@@ -71,18 +71,18 @@ init-upstream:
 	echo "Initialized Upstream Remotes"
 
 checkout:
-	\git checkout master
-	cd pkpage && \git  checkout master
-	cd scpage && \git  checkout master
-	cd apt-now && \git checkout master
-	cd fireaxe && \git  checkout master
-	cd awesome-lb-base && \git  checkout master
-	cd hoarderMediaOS && \git  checkout master
-	cd way-cooler && \git checkout master
-	cd fireplace && \git  checkout master
-	cd ewlc && \git  checkout master
-	cd wlc.rs && \git  checkout master
-	cd rust-wlc && \git  checkout master
+	\git checkout master; \
+	cd pkpage && \git  checkout master; \
+	cd ../scpage && \git  checkout master; \
+	cd ../apt-now && \git checkout master; \
+	cd ../fireaxe && \git  checkout master; \
+	cd ../awesome-lb-base && \git  checkout master; \
+	cd ../hoarderMediaOS && \git  checkout master; \
+	cd ../way-cooler && \git checkout master; \
+	cd ../fireplace && \git  checkout master; \
+	cd ../ewlc && \git  checkout master; \
+	cd ../wlc.rs && \git  checkout master; \
+	cd ../rust-wlc && \git  checkout master; \
 
 commit:
 	\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
