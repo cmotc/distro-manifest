@@ -274,10 +274,17 @@ deb:
 
 full:
 	gpg --batch --yes --clear-sign -u $(KEY) README.md
-	make uboot
+	make pkpage
 	make scpage
-	make nonfree-touchscreen-firmware-common
-	make ath6kl
+	make aptnow
+	make fireaxe
+	make awesomelive
+	make hoarderos
+	make cooler
+	make fireplace
+	make waylc
+	make rustway
+	make wayrs
 	echo "Rebuilt the whole suite"
 
 push:
