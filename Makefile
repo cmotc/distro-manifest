@@ -17,7 +17,7 @@ clone:
 	\git clone git@github.com:$(GH_NAME)/awesome-lb-base || \git clone https://github.com/$(GH_NAME)/awesome-lb-base || git clone https://github.com/cmotc/awesome-lb-base; \
 	\git clone git@github.com:$(GH_NAME)/hoarderMediaOS || \git clone https://github.com/$(GH_NAME)/hoarderMediaOS || git clone https://github.com/cmotc/hoarderMediaOS; \
 	\git clone git@github.com:$(GH_NAME)/way-cooler || \git clone https://github.com/$(GH_NAME)/way-cooler || git clone https://github.com/cmotc/way-cooler; \
-	\git clone git@github.com:$(GH_NAME)/wlc || \git clone https://github.com/$(GH_NAME)/wlc || git clone https://github.com/cmotc/wlc; \
+	\git clone git@github.com:$(GH_NAME)/ewlc || \git clone https://github.com/$(GH_NAME)/ewlc || git clone https://github.com/cmotc/ewlc; \
 	echo "Cloned subprojects"
 
 deinit:
@@ -29,7 +29,7 @@ deinit:
 	cd ../awesome-lb-base && \git remote remove github; \
 	cd ../hoarderMediaOS && \git remote remove github; \
 	cd ../way-cooler && \git remote remove github; \
-	cd ../wlc && \git remote remove github; \
+	cd ../ewlc && \git remote remove github; \
 	echo "removed pre-init"
 
 init:
@@ -42,7 +42,7 @@ init:
 	cd ../awesome-lb-base && \git  remote add github git@github.com:$(GH_NAME)/awesome-lb-base; \
 	cd ../hoarderMediaOS && \git  remote add github git@github.com:$(GH_NAME)/hoarderMediaOS; \
 	cd ../way-cooler && \git remote add github git@github.com:$(GH_NAME)/way-cooler; \
-	cd ../wlc && \git  remote add github git@github.com:$(GH_NAME)/wlc; \
+	cd ../ewlc && \git  remote add github git@github.com:$(GH_NAME)/ewlc; \
 	echo "Initialized Working Remotes"
 	make checkout
 
@@ -55,7 +55,7 @@ init-upstream:
 	cd ../awesome-lb-base && \git  remote add upstream git@github.com:cmotc/awesome-lb-base; \
 	cd ../hoarderMediaOS && \git  remote add upstream git@github.com:cmotc/hoarderMediaOS; \
 	cd ../way-cooler && \git remote add upstream git@github.com:way-cooler/way-cooler; \
-	cd ../wlc && \git  remote add upstream git@github.com:cmotc/wlc; \
+	cd ../ewlc && \git  remote add upstream git@github.com:cmotc/ewlc; \
 	echo "Initialized Upstream Remotes"
 
 checkout:
@@ -67,7 +67,7 @@ checkout:
 	cd awesome-lb-base && \git  checkout master
 	cd hoarderMediaOS && \git  checkout master
 	cd way-cooler && \git checkout master
-	cd wlc && \git  checkout master
+	cd ewlc && \git  checkout master
 
 commit:
 	\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
@@ -78,7 +78,7 @@ commit:
 	cd ../awesome-lb-base && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../hoarderMediaOS && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../way-cooler && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
-	cd ../wlc && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	cd ../ewlc && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	echo "Committed Release:"
 	echo "${COMMIT_MESSAGE}"
 
@@ -92,7 +92,7 @@ fetch:
 	cd ../awesome-lb-base && git fetch upstream && \git rebase upstream/master; \
 	cd ../hoarderMediaOS && git fetch upstream && \git rebase upstream/master; \
 	cd ../way-cooler && git fetch upstream && \git rebase upstream/master; \
-	cd ../wlc && git fetch upstream && \git rebase upstream/master; \
+	cd ../ewlc && git fetch upstream && \git rebase upstream/master; \
 	echo "Pulled in updates"
 
 pull:
@@ -118,7 +118,7 @@ upload:
 	cd ../awesome-lb-base && \git push github master; \
 	cd ../hoarderMediaOS && \git push github master; \
 	cd ../way-cooler && \git push github master; \
-	cd ../wlc && \git push github master; \
+	cd ../ewlc && \git push github master; \
 	#cd ../tab-web && \git push github master;
 	echo "Pushed Working Updates"
 
@@ -130,7 +130,7 @@ clean:
 	cd ../awesome-lb-base && make clean; \
 	cd ../hoarderMediaOS && make clean; \
 	cd ../way-cooler && make clean; \
-	cd ../wlc && make clean; \
+	cd ../ewlc && make clean; \
 	cd .. && rm *.buildinfo *.changes *.deb *.deb.md *.dsc *.tar.xz *.tar.gz *.debian.tar.xz *.debian.tar.gz *.orig.tar.gz *.orig.tar.zz *.iso; \
 	echo "Finished cleaning"
 
@@ -177,10 +177,10 @@ update-hoarderos:
 		\git push github master
 
 waylc:
-	export VERSION=$(VERSION);cd wlc && make
+	export VERSION=$(VERSION);cd ewlc && make
 
 update-waylc:
-	export VERSION=$(VERSION);cd wlc &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	export VERSION=$(VERSION);cd ewlc &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 		\git push github master
 
 cooler:
