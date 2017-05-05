@@ -17,7 +17,10 @@ clone:
 	\git clone git@github.com:$(GH_NAME)/awesome-lb-base || \git clone https://github.com/$(GH_NAME)/awesome-lb-base || git clone https://github.com/cmotc/awesome-lb-base; \
 	\git clone git@github.com:$(GH_NAME)/hoarderMediaOS || \git clone https://github.com/$(GH_NAME)/hoarderMediaOS || git clone https://github.com/cmotc/hoarderMediaOS; \
 	\git clone git@github.com:$(GH_NAME)/way-cooler || \git clone https://github.com/$(GH_NAME)/way-cooler || git clone https://github.com/cmotc/way-cooler; \
+	\git clone git@github.com:$(GH_NAME)/fireplace || \git clone https://github.com/$(GH_NAME)/fireplace || git clone https://github.com/cmotc/fireplace; \
 	\git clone git@github.com:$(GH_NAME)/ewlc || \git clone https://github.com/$(GH_NAME)/ewlc || git clone https://github.com/cmotc/ewlc; \
+	\git clone git@github.com:$(GH_NAME)/wlc.rs || \git clone https://github.com/$(GH_NAME)/wlc.rs || git clone https://github.com/cmotc/wlc.rs; \
+	\git clone git@github.com:$(GH_NAME)/rust-wlc || \git clone https://github.com/$(GH_NAME)/rust-wlc || git clone https://github.com/cmotc/rust-wlc; \
 	echo "Cloned subprojects"
 
 deinit:
@@ -29,7 +32,10 @@ deinit:
 	cd ../awesome-lb-base && \git remote remove github; \
 	cd ../hoarderMediaOS && \git remote remove github; \
 	cd ../way-cooler && \git remote remove github; \
+	cd ../fireplace && \git remote remove github; \
 	cd ../ewlc && \git remote remove github; \
+	cd ../wlc.rs && \git remote remove github; \
+	cd ../rust-wlc && \git remote remove github; \
 	echo "removed pre-init"
 
 init:
@@ -42,7 +48,10 @@ init:
 	cd ../awesome-lb-base && \git  remote add github git@github.com:$(GH_NAME)/awesome-lb-base; \
 	cd ../hoarderMediaOS && \git  remote add github git@github.com:$(GH_NAME)/hoarderMediaOS; \
 	cd ../way-cooler && \git remote add github git@github.com:$(GH_NAME)/way-cooler; \
+	cd ../fireplace && \git  remote add github git@github.com:$(GH_NAME)/fireplace; \
 	cd ../ewlc && \git  remote add github git@github.com:$(GH_NAME)/ewlc; \
+	cd ../wlc.rs && \git  remote add github git@github.com:$(GH_NAME)/wlc.rs; \
+	cd ../rust-wlc && \git  remote add github git@github.com:$(GH_NAME)/rust-wlc; \
 	echo "Initialized Working Remotes"
 	make checkout
 
@@ -55,7 +64,10 @@ init-upstream:
 	cd ../awesome-lb-base && \git  remote add upstream git@github.com:cmotc/awesome-lb-base; \
 	cd ../hoarderMediaOS && \git  remote add upstream git@github.com:cmotc/hoarderMediaOS; \
 	cd ../way-cooler && \git remote add upstream git@github.com:way-cooler/way-cooler; \
+	cd ../fireplace && \git  remote add upstream git@github.com:cmotc/fireplace; \
 	cd ../ewlc && \git  remote add upstream git@github.com:cmotc/ewlc; \
+	cd ../wlc.rs && \git  remote add upstream git@github.com:cmotc/wlc.rs; \
+	cd ../rust-wlc && \git  remote add upstream git@github.com:cmotc/rust-wlc; \
 	echo "Initialized Upstream Remotes"
 
 checkout:
@@ -67,7 +79,10 @@ checkout:
 	cd awesome-lb-base && \git  checkout master
 	cd hoarderMediaOS && \git  checkout master
 	cd way-cooler && \git checkout master
+	cd fireplace && \git  checkout master
 	cd ewlc && \git  checkout master
+	cd wlc.rs && \git  checkout master
+	cd rust-wlc && \git  checkout master
 
 commit:
 	\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
@@ -78,7 +93,10 @@ commit:
 	cd ../awesome-lb-base && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../hoarderMediaOS && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../way-cooler && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	cd ../fireplace && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	cd ../ewlc && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	cd ../wlc.rs && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+	cd ../rust-wlc && \git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 	echo "Committed Release:"
 	echo "${COMMIT_MESSAGE}"
 
@@ -92,7 +110,10 @@ fetch:
 	cd ../awesome-lb-base && git fetch upstream && \git rebase upstream/master; \
 	cd ../hoarderMediaOS && git fetch upstream && \git rebase upstream/master; \
 	cd ../way-cooler && git fetch upstream && \git rebase upstream/master; \
+	cd ../fireplace && git fetch upstream && \git rebase upstream/master; \
 	cd ../ewlc && git fetch upstream && \git rebase upstream/master; \
+	cd ../wlc.rs && git fetch upstream && \git rebase upstream/master; \
+	cd ../rust-wlc && git fetch upstream && \git rebase upstream/master; \
 	echo "Pulled in updates"
 
 pull:
@@ -118,7 +139,10 @@ upload:
 	cd ../awesome-lb-base && \git push github master; \
 	cd ../hoarderMediaOS && \git push github master; \
 	cd ../way-cooler && \git push github master; \
+	cd ../fireplace && \git push github master; \
 	cd ../ewlc && \git push github master; \
+	cd ../wlc.rs && \git push github master; \
+	cd ../rust-wlc && \git push github master; \
 	#cd ../tab-web && \git push github master;
 	echo "Pushed Working Updates"
 
@@ -130,7 +154,10 @@ clean:
 	cd ../awesome-lb-base && make clean; \
 	cd ../hoarderMediaOS && make clean; \
 	cd ../way-cooler && make clean; \
+	cd ../fireplace && make clean; \
 	cd ../ewlc && make clean; \
+	cd ../wlc.rs && make clean; \
+	cd ../rust-wlc && make clean; \
 	cd .. && rm *.buildinfo *.changes *.deb *.deb.md *.dsc *.tar.xz *.tar.gz *.debian.tar.xz *.debian.tar.gz *.orig.tar.gz *.orig.tar.zz *.iso; \
 	echo "Finished cleaning"
 
@@ -176,6 +203,20 @@ update-hoarderos:
 	export VERSION=$(VERSION);cd fireaxe &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 		\git push github master
 
+cooler:
+	export VERSION=$(VERSION);cd way-cooler && make
+
+update-cooler:
+	export VERSION=$(VERSION);cd way-cooler &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+		\git push github master
+
+fireplace:
+	export VERSION=$(VERSION);cd fireplace && make
+
+update-fireplace:
+	export VERSION=$(VERSION);cd fireplace &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+		\git push github master
+
 waylc:
 	export VERSION=$(VERSION);cd ewlc && make
 
@@ -183,11 +224,18 @@ update-waylc:
 	export VERSION=$(VERSION);cd ewlc &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 		\git push github master
 
-cooler:
-	export VERSION=$(VERSION);cd way-cooler && make
+rustway:
+	export VERSION=$(VERSION);cd rust-wlc && make
 
-update-cooler:
-	export VERSION=$(VERSION);cd way-cooler &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+update-rustway:
+	export VERSION=$(VERSION);cd rust-wlc &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
+		\git push github master
+
+wayrs:
+	export VERSION=$(VERSION);cd wlc.rs && make
+
+update-wayrs:
+	export VERSION=$(VERSION);cd wlc.rs &&\git add . && \git commit -am "${COMMIT_MESSAGE}"; \
 		\git push github master
 
 web:

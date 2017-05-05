@@ -16,7 +16,10 @@
   <project path="hoarderMediaOS" name="hoarderMediaOS" />
   <project path="awesome-lb-base" name="awesome-lb-base" />
   <project path="way-cooler" name="way-cooler" />
+  <project path="fireplace" name="fireplace" />
   <project path="ewlc" name="ewlc" />
+  <project path="rust-wlc" name="rust-wlc" />
+  <project path="wlc.rs" name="wlc.rs" />
   <!--
   <project path="stacheos" name="stacheos" />
   <project path="hdpage" name="hdpage" />
