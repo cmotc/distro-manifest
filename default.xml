@@ -15,7 +15,7 @@
   <project path="fireaxe" name="fireaxe" />
   <project path="notdos" name="notdos" />
   <project path="hoarderMediaOS" name="hoarderMediaOS" />
-  <project path="hoaderCache-docker" name="hoarderCache-docker" />
+  <project path="hoarderCache-docker" name="hoarderCache-docker" />
   <project path="awesome-lb-base" name="awesome-lb-base" />
   <project path="way-cooler" name="way-cooler" />
   <project path="fireplace" name="fireplace" />
